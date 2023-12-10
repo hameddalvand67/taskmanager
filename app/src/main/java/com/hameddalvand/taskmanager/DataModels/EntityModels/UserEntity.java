@@ -1,10 +1,10 @@
-package com.hameddalvand.taskmanager.models.dataModels;
+package com.hameddalvand.taskmanager.DataModels.EntityModels;
 
 import com.orm.SugarRecord;
 
 import java.util.List;
 
-public class UserDataModel  extends SugarRecord {
+public class UserEntity extends SugarRecord {
 
     String phone;
     String firstname;
@@ -13,15 +13,15 @@ public class UserDataModel  extends SugarRecord {
     String state;
 
 
-    public List<CodeDataModel> getCodes(UserDataModel user) {
-        return  CodeDataModel.find(CodeDataModel.class,
+    public List<CodeEntity> getCodes(UserEntity user) {
+        return  CodeEntity.find(CodeEntity.class,
                 "user = ?", String.valueOf(user.getId()));
     }
 
 
 
 
-    public UserDataModel(String phone) {
+    public UserEntity(String phone) {
         this.phone = phone;
     }
 

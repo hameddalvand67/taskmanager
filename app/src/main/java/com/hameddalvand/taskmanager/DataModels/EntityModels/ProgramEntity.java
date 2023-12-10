@@ -1,19 +1,19 @@
-package com.hameddalvand.taskmanager.models.dataModels;
+package com.hameddalvand.taskmanager.DataModels.EntityModels;
 
 import com.orm.SugarRecord;
 
-public class ProgramDataModel  extends SugarRecord {
+public class ProgramEntity extends SugarRecord {
 
-    ShareListDataModel shareUser;
+    ShareListEntity shareUser;
     String name;
     String title;
     boolean active;
 
-    public ShareListDataModel getShareUser() {
+    public ShareListEntity getShareUser() {
         return shareUser;
     }
 
-    public void setShareUser(ShareListDataModel shareUser) {
+    public void setShareUser(ShareListEntity shareUser) {
         this.shareUser = shareUser;
     }
 
@@ -41,7 +41,7 @@ public class ProgramDataModel  extends SugarRecord {
         this.active = active;
     }
 
-    public ProgramDataModel(ShareListDataModel shareUser, String name, String title, boolean active) {
+    public ProgramEntity(ShareListEntity shareUser, String name, String title, boolean active) {
         this.shareUser = shareUser;
         this.name = name;
         this.title = title;

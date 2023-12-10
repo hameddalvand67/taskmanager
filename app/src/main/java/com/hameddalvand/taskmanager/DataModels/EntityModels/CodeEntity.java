@@ -1,21 +1,21 @@
-package com.hameddalvand.taskmanager.models.dataModels;
+package com.hameddalvand.taskmanager.DataModels.EntityModels;
 
 import com.orm.SugarRecord;
 
-public class CodeDataModel extends SugarRecord {
+public class CodeEntity extends SugarRecord {
 
-    UserDataModel user;
+    UserEntity user;
     String date_time;
 
     short count_request;
 
     String code;
 
-    public UserDataModel getUser() {
+    public UserEntity getUser() {
         return user;
     }
 
-    public void setUser(UserDataModel user) {
+    public void setUser(UserEntity user) {
         this.user = user;
     }
 
@@ -43,7 +43,7 @@ public class CodeDataModel extends SugarRecord {
         this.code = code;
     }
 
-    public CodeDataModel(UserDataModel user, String date_time, short count_request, String code) {
+    public CodeEntity(UserEntity user, String date_time, short count_request, String code) {
         this.user = user;
         this.date_time = date_time;
         this.count_request = count_request;

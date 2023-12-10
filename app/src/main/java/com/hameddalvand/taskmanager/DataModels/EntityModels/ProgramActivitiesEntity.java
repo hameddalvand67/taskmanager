@@ -1,28 +1,28 @@
-package com.hameddalvand.taskmanager.models.dataModels;
+package com.hameddalvand.taskmanager.DataModels.EntityModels;
 
 import com.orm.SugarRecord;
 
-public class ProgramActivitiesDataModel  extends SugarRecord {
+public class ProgramActivitiesEntity extends SugarRecord {
 
-    ActivityDataModel activity;
-    ProgramDataModel program;
+    ActivityEntity activity;
+    ProgramEntity program;
     String  time;
     String  startDate;
     String  endDate;
 
-    public ActivityDataModel getActivity() {
+    public ActivityEntity getActivity() {
         return activity;
     }
 
-    public void setActivity(ActivityDataModel activity) {
+    public void setActivity(ActivityEntity activity) {
         this.activity = activity;
     }
 
-    public ProgramDataModel getProgram() {
+    public ProgramEntity getProgram() {
         return program;
     }
 
-    public void setProgram(ProgramDataModel program) {
+    public void setProgram(ProgramEntity program) {
         this.program = program;
     }
 
@@ -50,7 +50,7 @@ public class ProgramActivitiesDataModel  extends SugarRecord {
         this.endDate = endDate;
     }
 
-    public ProgramActivitiesDataModel(ActivityDataModel activity, ProgramDataModel program, String time, String startDate, String endDate) {
+    public ProgramActivitiesEntity(ActivityEntity activity, ProgramEntity program, String time, String startDate, String endDate) {
         this.activity = activity;
         this.program = program;
         this.time = time;

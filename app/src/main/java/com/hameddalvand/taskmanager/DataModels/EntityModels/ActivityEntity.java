@@ -1,9 +1,9 @@
-package com.hameddalvand.taskmanager.models.dataModels;
+package com.hameddalvand.taskmanager.DataModels.EntityModels;
 
 import com.orm.SugarRecord;
 
-public class ActivityDataModel extends SugarRecord {
-    ShareListDataModel shareUser;
+public class ActivityEntity extends SugarRecord {
+    ShareListEntity shareUser;
     String name;
     long value;
     String description;
@@ -11,13 +11,13 @@ public class ActivityDataModel extends SugarRecord {
     String dead_line;
     String time;
     String state;
-    ActivityDataModel activity;
+    ActivityEntity activity;
 
-    public ShareListDataModel getShareUser() {
+    public ShareListEntity getShareUser() {
         return shareUser;
     }
 
-    public void setShareUser(ShareListDataModel shareUser) {
+    public void setShareUser(ShareListEntity shareUser) {
         this.shareUser = shareUser;
     }
 
@@ -77,15 +77,15 @@ public class ActivityDataModel extends SugarRecord {
         this.state = state;
     }
 
-    public ActivityDataModel getActivity() {
+    public ActivityEntity getActivity() {
         return activity;
     }
 
-    public void setActivity(ActivityDataModel activity) {
+    public void setActivity(ActivityEntity activity) {
         this.activity = activity;
     }
 
-    public ActivityDataModel(ShareListDataModel shareUser, String name, long value, String description, String created_at, String dead_line, String time, String state, ActivityDataModel activity) {
+    public ActivityEntity(ShareListEntity shareUser, String name, long value, String description, String created_at, String dead_line, String time, String state, ActivityEntity activity) {
         this.shareUser = shareUser;
         this.name = name;
         this.value = value;

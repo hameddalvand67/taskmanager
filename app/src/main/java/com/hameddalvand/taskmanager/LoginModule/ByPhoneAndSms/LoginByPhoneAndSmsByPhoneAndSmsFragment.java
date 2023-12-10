@@ -1,4 +1,4 @@
-package com.hameddalvand.taskmanager.views;
+package com.hameddalvand.taskmanager.LoginModule.ByPhoneAndSms;
 
 import android.os.Bundle;
 
@@ -11,15 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.hameddalvand.taskmanager.R;
-import com.hameddalvand.taskmanager.interfaces.AppInterfaces;
-import com.hameddalvand.taskmanager.models.NetWorkModel;
-import com.hameddalvand.taskmanager.models.Validator.Validator;
-import com.hameddalvand.taskmanager.presenters.LoginPresentation;
+import com.hameddalvand.taskmanager.HelperModels.NetWorkModel;
+import com.hameddalvand.taskmanager.HelperModels.Validator.Validator;
 
-public class LoginFragment extends Fragment
-        implements View.OnClickListener, AppInterfaces.loginFragmentInterFace{
+public class LoginByPhoneAndSmsByPhoneAndSmsFragment extends Fragment
+        implements View.OnClickListener, InterfaceLoginByPhoneAndSms.LoginByPhoneAndSmsFragmentInterFace {
 
-    public AppInterfaces.loginPresentationInterFace loginPresentationInterFace;
+    public InterfaceLoginByPhoneAndSms.LoginByPhoneAndSmsPresentationInterFace loginByPhoneAndSmsPresentationInterFace;
 
     EditText phone;
     Button login;
@@ -30,7 +28,7 @@ public class LoginFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=  inflater.inflate(R.layout.fragment_login, container, false);
+        View view=  inflater.inflate(R.layout.fragment_login_by_phone_and_sms, container, false);
         phone = view.findViewById(R.id.phone);
         login = view.findViewById(R.id.login);
 
@@ -74,8 +72,8 @@ public class LoginFragment extends Fragment
             if (NetWorkModel.isNetworkConnected(this.getContext())){
                 //show loading view internal
                 openLoading();
-                loginPresentationInterFace= new LoginPresentation(LoginFragment.this);
-                loginPresentationInterFace.login(phoneNumber);
+                loginByPhoneAndSmsPresentationInterFace = new LoginByPhoneAndSmsLoginByPhoneAndSmsPresentation(LoginByPhoneAndSmsByPhoneAndSmsFragment.this);
+                loginByPhoneAndSmsPresentationInterFace.loginByLocaleDb(phoneNumber);
             }else {
                 //show loading view internal
                 openLoadingTryToConnectToInternet();

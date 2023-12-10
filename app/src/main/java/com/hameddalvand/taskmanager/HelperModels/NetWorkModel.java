@@ -1,4 +1,4 @@
-package com.hameddalvand.taskmanager.models;
+package com.hameddalvand.taskmanager.HelperModels;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
