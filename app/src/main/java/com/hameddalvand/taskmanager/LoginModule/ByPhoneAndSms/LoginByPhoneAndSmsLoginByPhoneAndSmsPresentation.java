@@ -10,11 +10,6 @@ import com.hameddalvand.taskmanager.HelperModels.StringHelper;
 
 public class LoginByPhoneAndSmsLoginByPhoneAndSmsPresentation implements InterfaceLoginByPhoneAndSms.LoginByPhoneAndSmsPresentationInterFace {
     InterfaceLoginByPhoneAndSms.LoginByPhoneAndSmsFragmentInterFace loginByPhoneAndSmsFragmentInterFace;
-    private DaoModelInterFace.CodeDaoModelInterFace codeDaoModelInterFace;
-    private DaoModelInterFace.UserDaoModelInterFace userDaoModelInterFace;
-
-    private final short COUNT_REQUEST = 3 ;
-    private final short TIME_REQUEST = 300 ;
 
 
     public LoginByPhoneAndSmsLoginByPhoneAndSmsPresentation(InterfaceLoginByPhoneAndSms.LoginByPhoneAndSmsFragmentInterFace loginByPhoneAndSmsFragmentInterFace) {
@@ -26,30 +21,37 @@ public class LoginByPhoneAndSmsLoginByPhoneAndSmsPresentation implements Interfa
 
 
     public void loginByLocaleDb(String phoneNumber) {
-        this.codeDaoModelInterFace = new CodeDaoModel();
-        this.userDaoModelInterFace = new UserDaoModel();
-        UserEntity model=this.userDaoModelInterFace.selectUser(phoneNumber);
+        DaoModelInterFace.CodeDaoModelInterFace codeDaoModelInterFace = new CodeDaoModel();
+        DaoModelInterFace.UserDaoModelInterFace userDaoModelInterFace = new UserDaoModel();
+        UserEntity model= userDaoModelInterFace.selectUser(phoneNumber);
         if (model==null){
             //add new user
-            UserEntity newUser = this.userDaoModelInterFace.addNewUser(phoneNumber);
+            UserEntity newUser = userDaoModelInterFace.addNewUser(phoneNumber);
             //add new code
-            CodeEntity code = this.codeDaoModelInterFace.addNewCode(newUser);
+            CodeEntity code = codeDaoModelInterFace.addNewCode(newUser);
 
             //send code for phone number by api
 
+            loginByPhoneAndSmsFragmentInterFace.getResponse("");
 
         }else {
 
-            CodeEntity lastCode = this.codeDaoModelInterFace.getLastCode(model);
+            CodeEntity lastCode = codeDaoModelInterFace.getLastCode(model);
             if (lastCode!=null){
-                if (lastCode.getCount_request()< COUNT_REQUEST ){
+                short COUNT_REQUEST = 3;
+                if (lastCode.getCount_request()< COUNT_REQUEST){
+                    short TIME_REQUEST = 300;
                     if (StringHelper.date_time_now()-
-                            Long.valueOf(lastCode.getDate_time())>TIME_REQUEST){
+                            Long.valueOf(lastCode.getDate_time())> TIME_REQUEST){
                         // new code
-                        CodeEntity code = this.codeDaoModelInterFace.addNewCode(model);
+                        CodeEntity code = codeDaoModelInterFace.addNewCode(model);
                         //send code for phone number by api
+
+                        loginByPhoneAndSmsFragmentInterFace.getResponse("");
                     }else {
                         // waiting until last 300 second after try again
+
+                        loginByPhoneAndSmsFragmentInterFace.getResponse("");
                     }
 
 
@@ -60,12 +62,19 @@ public class LoginByPhoneAndSmsLoginByPhoneAndSmsPresentation implements Interfa
                     lastCode.save();
                     // countrequest++  ;
 
+
+                    loginByPhoneAndSmsFragmentInterFace.getResponse("");
+
+
+
                 }
 
 
 
             }else {
                 // a bug
+
+                loginByPhoneAndSmsFragmentInterFace.getResponse("");
             }
 
 

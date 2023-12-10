@@ -8,6 +8,7 @@ public interface InterfaceLoginByPhoneAndSms {
 
     public interface LoginByPhoneAndSmsFragmentInterFace {
 
+      public  void getResponse(String state);
     }
 
 }

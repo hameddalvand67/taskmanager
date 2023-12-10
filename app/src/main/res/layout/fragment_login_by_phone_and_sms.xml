@@ -1,29 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".LoginModule.ByPhoneAndSms.LoginByPhoneAndSmsByPhoneAndSmsFragment">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="phone" />
 
-    <EditText
-        android:id="@+id/phone"
+    <LinearLayout
+        android:id="@+id/mainFrame"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="phone" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".LoginModule.ByPhoneAndSms.LoginByPhoneAndSmsByPhoneAndSmsFragment">
 
-    <Button
-        android:id="@+id/login"
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="phone" />
+
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone" />
+
+        <Button
+            android:id="@+id/btn_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="login" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/waitForConnect"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="login" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".LoginModule.ByPhoneAndSms.LoginByPhoneAndSmsByPhoneAndSmsFragment">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="phone" />
 
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btn_notConnect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="try" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/waitForResponse"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".LoginModule.ByPhoneAndSms.LoginByPhoneAndSmsByPhoneAndSmsFragment">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="phone" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_notResponse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+
+    </LinearLayout>
+
+
+</FrameLayout>
