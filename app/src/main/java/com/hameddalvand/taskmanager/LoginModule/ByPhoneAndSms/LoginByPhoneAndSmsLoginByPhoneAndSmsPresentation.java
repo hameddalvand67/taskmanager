@@ -13,6 +13,9 @@ public class LoginByPhoneAndSmsLoginByPhoneAndSmsPresentation implements Interfa
     private DaoModelInterFace.CodeDaoModelInterFace codeDaoModelInterFace;
     private DaoModelInterFace.UserDaoModelInterFace userDaoModelInterFace;
 
+    private final short COUNT_REQUEST = 3 ;
+    private final short TIME_REQUEST = 300 ;
+
 
     public LoginByPhoneAndSmsLoginByPhoneAndSmsPresentation(InterfaceLoginByPhoneAndSms.LoginByPhoneAndSmsFragmentInterFace loginByPhoneAndSmsFragmentInterFace) {
         this.loginByPhoneAndSmsFragmentInterFace = loginByPhoneAndSmsFragmentInterFace;
@@ -39,9 +42,9 @@ public class LoginByPhoneAndSmsLoginByPhoneAndSmsPresentation implements Interfa
 
             CodeEntity lastCode = this.codeDaoModelInterFace.getLastCode(model);
             if (lastCode!=null){
-                if (lastCode.getCount_request()<3){
+                if (lastCode.getCount_request()< COUNT_REQUEST ){
                     if (StringHelper.date_time_now()-
-                            Long.valueOf(lastCode.getDate_time())>300){
+                            Long.valueOf(lastCode.getDate_time())>TIME_REQUEST){
                         // new code
                         CodeEntity code = this.codeDaoModelInterFace.addNewCode(model);
                         //send code for phone number by api

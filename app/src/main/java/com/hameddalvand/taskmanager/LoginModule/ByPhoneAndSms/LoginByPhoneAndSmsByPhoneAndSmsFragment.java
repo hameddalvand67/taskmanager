@@ -68,7 +68,6 @@ public class LoginByPhoneAndSmsByPhoneAndSmsFragment extends Fragment
                 validator.validation.phoneValidate(phoneNumber));
         if (validator.isValid()){
             //isvalid
-
             if (NetWorkModel.isNetworkConnected(this.getContext())){
                 //show loading view internal
                 openLoading();
