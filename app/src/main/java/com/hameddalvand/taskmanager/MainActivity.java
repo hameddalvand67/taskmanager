@@ -6,16 +6,22 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
-import com.hameddalvand.taskmanager.LoginModule.ByPhoneAndSms.LoginByPhoneAndSmsByPhoneAndSmsFragment;
+import com.hameddalvand.taskmanager.RegisterAndLoginModule.LoginByCodeSms.LoginByCodeSmsFragment;
+import com.hameddalvand.taskmanager.RegisterAndLoginModule.RegisterByPhoneAndSms.RegisterByPhoneAndSmsFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements InterFaceMainActivity {
+
+
+    public  RegisterByPhoneAndSmsFragment registerByPhoneAndSmsFragment;
+    public LoginByCodeSmsFragment loginByCodeSmsFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        replaceFragment(new LoginByPhoneAndSmsByPhoneAndSmsFragment(),null,false);
+        startRegisterByPhoneAndSmsFragment();
 
     }
 
@@ -34,5 +40,17 @@ public class MainActivity extends AppCompatActivity {
 //                HOME_FRAGMENT_TAG ,
 //                true);
 
+    }
+
+    @Override
+    public void startRegisterByPhoneAndSmsFragment() {
+        this.registerByPhoneAndSmsFragment=new RegisterByPhoneAndSmsFragment(this);
+        replaceFragment(this.registerByPhoneAndSmsFragment,null,false);
+    }
+
+    @Override
+    public void startLoginByCodeSmsFragment() {
+        this.loginByCodeSmsFragment=new LoginByCodeSmsFragment(this);
+        replaceFragment(this.loginByCodeSmsFragment,null,false);
     }
 }

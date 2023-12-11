@@ -72,6 +72,7 @@ dependencies {
 
 
     implementation("com.github.satyan:sugar:1.5")
+    implementation ("com.github.happysingh23828:HappyTimer:1.0.1")
 
 
 

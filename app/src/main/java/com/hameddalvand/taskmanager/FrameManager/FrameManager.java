@@ -4,8 +4,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.hameddalvand.taskmanager.LoginModule.ByPhoneAndSms.InterfaceLoginByPhoneAndSms;
-
 public class FrameManager implements View.OnClickListener {
 
     LinearLayout mainFrame,waitForConnect,waitForResponse;
@@ -27,6 +25,7 @@ public class FrameManager implements View.OnClickListener {
         this.btn_main.setOnClickListener(this::onClick);
         this.btn_notConnect.setOnClickListener(this::onClick);
         this.btn_notResponse.setOnClickListener(this::onClick);
+        btn_main.setEnabled(false);
         setActiveBtnResponse(false);
 
 

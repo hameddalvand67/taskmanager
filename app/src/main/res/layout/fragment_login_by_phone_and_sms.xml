@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginModule.ByPhoneAndSms.LoginByPhoneAndSmsByPhoneAndSmsFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".RegisterAndLoginModule.RegisterByPhoneAndSms.RegisterByPhoneAndSmsFragment">
 
 
     <LinearLayout
@@ -11,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".LoginModule.ByPhoneAndSms.LoginByPhoneAndSmsByPhoneAndSmsFragment">
+        tools:context=".RegisterAndLoginModule.RegisterByPhoneAndSms.RegisterByPhoneAndSmsFragment">
 
         <TextView
             android:id="@+id/textView"
@@ -25,6 +26,38 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="phone" />
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <com.androchef.happytimer.countdowntimer.DynamicCountDownView
+            android:id="@+id/dynamicCountDownView"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:dynamic_timer_text_color="@android:color/white"
+            app:dynamic_timer_text_separator_color="@color/colorGrey"
+            app:dynamic_timer_text_size="12sp"
+            app:dynamic_timer_separator_text_size="15sp"
+            app:dynamic_timer_text_isBold="true"
+            app:dynamic_timer_text__separator_isBold="true"
+            app:dynamic_timer_text_separator=":"
+            app:dynamic_show_hour="true"
+            app:dynamic_show_labels="true"
+            app:dynamic_show_minutes="true"
+            app:dynamic_show_seconds="true"
+            />
+
+
+
 
         <Button
             android:id="@+id/btn_main"
@@ -41,7 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".LoginModule.ByPhoneAndSms.LoginByPhoneAndSmsByPhoneAndSmsFragment">
+        tools:context=".RegisterAndLoginModule.RegisterByPhoneAndSms.RegisterByPhoneAndSmsFragment">
 
         <TextView
             android:id="@+id/textView1"
@@ -65,7 +98,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".LoginModule.ByPhoneAndSms.LoginByPhoneAndSmsByPhoneAndSmsFragment">
+        tools:context=".RegisterAndLoginModule.RegisterByPhoneAndSms.RegisterByPhoneAndSmsFragment">
 
         <TextView
             android:id="@+id/textView1"

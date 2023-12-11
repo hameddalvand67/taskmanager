@@ -5,6 +5,9 @@ public interface InterfaceFrameManager {
     public void btnMainOnclick();
     public void btnNotConnectOnclick();
     public void btnNotResponseOnclick();
+    public void waitForResponse();
+
+
 
 
 }

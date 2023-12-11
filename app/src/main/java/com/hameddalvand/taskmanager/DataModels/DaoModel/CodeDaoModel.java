@@ -1,9 +1,8 @@
 package com.hameddalvand.taskmanager.DataModels.DaoModel;
 
-import com.hameddalvand.taskmanager.HelperModels.StringHelper;
+import com.hameddalvand.taskmanager.HelperModules.StringHelper;
 import com.hameddalvand.taskmanager.DataModels.EntityModels.CodeEntity;
 import com.hameddalvand.taskmanager.DataModels.EntityModels.UserEntity;
-import com.hameddalvand.taskmanager.LoginModule.ByPhoneAndSms.InterfaceLoginByPhoneAndSms;
 
 import java.util.List;
 

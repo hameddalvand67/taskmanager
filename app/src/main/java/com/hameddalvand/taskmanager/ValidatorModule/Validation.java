@@ -1,8 +1,8 @@
-package com.hameddalvand.taskmanager.HelperModels.Validator;
+package com.hameddalvand.taskmanager.ValidatorModule;
 
 public class Validation {
 
-    public  ValidDataModel phoneValidate(String phone) {
+    public  ValidDataModel phoneValidate(String viewName ,String phone) {
 
           String  MESSAGE="در وارد کردن شماره تلفن دقت کنید";
           String  ERR_MESSAGE="شماره تلفن درست وارد نشده است";
@@ -12,9 +12,9 @@ public class Validation {
         boolean isValid1 = phone.matches(regexPatternPhone1);
         boolean isValid2 = phone.matches(regexPatternPhone2);
         if (isValid1 || isValid2){
-            return new ValidDataModel("","",true);
+            return new ValidDataModel(viewName , phone ,"","",true);
         }else {
-            return new ValidDataModel(MESSAGE,ERR_MESSAGE,false);
+            return new ValidDataModel(viewName,phone,MESSAGE,ERR_MESSAGE,false);
         }
 
 

@@ -1,4 +1,4 @@
-package com.hameddalvand.taskmanager.LoginModule.ByPhoneAndSms;
+package com.hameddalvand.taskmanager.RegisterAndLoginModule.RegisterByPhoneAndSms;
 
 
 import com.hameddalvand.taskmanager.DataModels.DaoModel.CodeDaoModel;
@@ -6,17 +6,21 @@ import com.hameddalvand.taskmanager.DataModels.DaoModel.DaoModelInterFace;
 import com.hameddalvand.taskmanager.DataModels.DaoModel.UserDaoModel;
 import com.hameddalvand.taskmanager.DataModels.EntityModels.CodeEntity;
 import com.hameddalvand.taskmanager.DataModels.EntityModels.UserEntity;
-import com.hameddalvand.taskmanager.HelperModels.StringHelper;
+import com.hameddalvand.taskmanager.HelperModules.StringHelper;
 
-public class LoginByPhoneAndSmsLoginByPhoneAndSmsPresentation implements InterfaceLoginByPhoneAndSms.LoginByPhoneAndSmsPresentationInterFace {
-    InterfaceLoginByPhoneAndSms.LoginByPhoneAndSmsFragmentInterFace loginByPhoneAndSmsFragmentInterFace;
+public class RegisterByPhoneAndSmsPresentation implements InterfaceRegisterByPhoneAndSms.RegisterByPhoneAndSmsPresentationInterFace {
+    InterfaceRegisterByPhoneAndSms.RegisterByPhoneAndSmsFragmentInterFace registerByPhoneAndSmsFragmentInterFace;
 
 
-    public LoginByPhoneAndSmsLoginByPhoneAndSmsPresentation(InterfaceLoginByPhoneAndSms.LoginByPhoneAndSmsFragmentInterFace loginByPhoneAndSmsFragmentInterFace) {
-        this.loginByPhoneAndSmsFragmentInterFace = loginByPhoneAndSmsFragmentInterFace;
+    public RegisterByPhoneAndSmsPresentation(InterfaceRegisterByPhoneAndSms.RegisterByPhoneAndSmsFragmentInterFace registerByPhoneAndSmsFragmentInterFace) {
+        this.registerByPhoneAndSmsFragmentInterFace = registerByPhoneAndSmsFragmentInterFace;
     }
 
 
+
+    public static final String SEND_CODE="SEND_CODE";
+    public static final String WAIT_TIME="WAIT_TIME";
+    public static final String TRY_AGAIN="TRY_AGAIN";
 
 
 
@@ -32,7 +36,7 @@ public class LoginByPhoneAndSmsLoginByPhoneAndSmsPresentation implements Interfa
 
             //send code for phone number by api
 
-            loginByPhoneAndSmsFragmentInterFace.getResponse("");
+            registerByPhoneAndSmsFragmentInterFace.getResponse(SEND_CODE);
 
         }else {
 
@@ -47,11 +51,14 @@ public class LoginByPhoneAndSmsLoginByPhoneAndSmsPresentation implements Interfa
                         CodeEntity code = codeDaoModelInterFace.addNewCode(model);
                         //send code for phone number by api
 
-                        loginByPhoneAndSmsFragmentInterFace.getResponse("");
+                        registerByPhoneAndSmsFragmentInterFace.getResponse(SEND_CODE);
                     }else {
+
+                        registerByPhoneAndSmsFragmentInterFace.pleaseWait();
+
                         // waiting until last 300 second after try again
 
-                        loginByPhoneAndSmsFragmentInterFace.getResponse("");
+                        registerByPhoneAndSmsFragmentInterFace.getResponse(WAIT_TIME);
                     }
 
 
@@ -63,7 +70,7 @@ public class LoginByPhoneAndSmsLoginByPhoneAndSmsPresentation implements Interfa
                     // countrequest++  ;
 
 
-                    loginByPhoneAndSmsFragmentInterFace.getResponse("");
+                    registerByPhoneAndSmsFragmentInterFace.getResponse(SEND_CODE);
 
 
 
@@ -74,7 +81,7 @@ public class LoginByPhoneAndSmsLoginByPhoneAndSmsPresentation implements Interfa
             }else {
                 // a bug
 
-                loginByPhoneAndSmsFragmentInterFace.getResponse("");
+                registerByPhoneAndSmsFragmentInterFace.getResponse(TRY_AGAIN);
             }
 
 
